@@ -5,8 +5,6 @@ Copyright 2014 Allen B. Downey
 License: GNU GPLv3 http://www.gnu.org/licenses/gpl.html
 """
 
-from __future__ import print_function
-
 import numpy as np
 
 import thinkstats2
@@ -54,7 +52,7 @@ def CleanFemPreg(df):
 
     # birthwgt_lb contains at least one bogus value (51 lbs)
     # replace with NaN
-    df.birthwgt_lb1[df.birthwgt_lb1 > 20] = np.nan
+    df.loc[df.birthwgt_lb1 > 20, 'birthwgt_lb1'] = np.nan
     
     # replace 'not ascertained', 'refused', 'don't know' with NaN
     na_vals = [97, 98, 99]
